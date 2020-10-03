@@ -1,19 +1,20 @@
 import React, {useState} from 'react';
-import Tile from './Tile';
+import {  Link } from 'react-router-dom';
 import DatePicker from 'react-date-picker';
-const API = 'http://localhost:3000/users';
+const userId = localStorage.getItem('id');
+const API = `http://localhost:3000/users/${userId}`;
 
 function AddRequest({onAddRequest}) {
     const [dateFrom, setDateFrom] = useState(new Date());
     const [dateTo, setDateTo] = useState(new Date());
     const [pet, setPet] = useState('');
     const [error, setError] = useState(null);
-    const [requested, setRequested] = useState(false)
+    const [requested, setRequested] = useState(false);
 
     const handleSubmit = (event) => {
         event.preventDefault();
         if (validation()) {
-            fetch(`${API}/1`, {
+            fetch(API, {
                 method: "PATCH",
                 body: JSON.stringify({
                   requests: [pet, dateFrom, dateTo]
@@ -71,8 +72,10 @@ function AddRequest({onAddRequest}) {
             </div>
             <button type="submit">Add</button>
         </form>
-        {requested &&
-        <Tile />}
+        {requested && <>
+        <div>Request successfuly submitted!</div>
+        <Link to='/home'>Dashboard</Link>
+        </>}
         </>
     )
 }
