@@ -40,26 +40,34 @@ function Signup({onAddUser}) {
 
       if (registered) {
           return (
-              <>
-              <div>Congratulations!</div>
-              <span>Already have an account?</span> <Link to="/login">Sign in</Link>
-              </>
+              <div className="formWrapper">
+              <h1>Congratulations!</h1>
+              <div className="loginPrompt">
+              <h3>Already have an account?</h3>
+              <Link to="/login">Sign in</Link>
+              </div>
+              </div>
           )
       } else return (
-        <>
-        <div>Welcome to Catsharing!</div>
-        <div>Create an account</div>
+        <div className="formWrapper">
+        <h1>Welcome to Petsharing!</h1>
+        <div className="signupPrompt">
+        <h3>Create an account</h3>
         <form onSubmit={handleSignup}>
-        <label>User:
+        <label>User:&nbsp;
             <input type="text" name="username" value={username} onChange={e => setUsername(e.target.value)} />
         </label>
-        <label>Password:
+        <label>&nbsp;Password:&nbsp;
             <input type="text" name="password" value={password} onChange={e => setPassword(e.target.value)} />
         </label>
-            <button type="submit">Sign up!</button>
+            <button className="button signupButton" type="submit">Sign up!</button>
         </form>
-        <span>Already have an account?</span> <Link to="/login">Sign in</Link>
-        </>
+        </div>
+        <div className="loginPrompt">
+        <h3>Already have an account?</h3>
+        <Link to="/login">Sign in</Link>
+        </div>
+        </div>
     );
 }
 
