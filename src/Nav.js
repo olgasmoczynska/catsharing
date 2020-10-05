@@ -5,18 +5,14 @@ function Nav({onLogout}) {
 
     return (
         <div>
-            <nav>
-                <div>Petsharing</div>
+            <nav className="nav">
+                <div className="logo">Petsharing</div>
                 <ul>
-                    <li><NavLink to='/home' >Main</NavLink></li>
+                    <li><NavLink to='/home' >Home</NavLink></li>
                     <li><NavLink to='/dashboard' >Dashboard</NavLink></li>
                     <li><NavLink to='/addrequest' >Add Request</NavLink></li>
-                    <li>
-                        <ul>
-                            <li>You are logged as {localStorage.getItem("username")}</li>
-                            <li><button onClick={onLogout}>Logout</button></li>
-                        </ul>
-                    </li>
+                    <li>You are logged as&nbsp;<span>{localStorage.getItem('username')}</span></li>
+                    <button className="button" onClick={onLogout}>Logout</button>
                 </ul>
             </nav>
         </div>
