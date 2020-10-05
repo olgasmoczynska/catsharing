@@ -6,7 +6,7 @@ function Login() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [isLogged, setIsLogged] = useState(false);
-    const [error, setError] = useState(false);
+    const [error, setError] = useState(false); 
 
     // const validate = data => {
     //     const {username, password} = data;
@@ -50,18 +50,18 @@ function Login() {
         return <Redirect to='/home' />
     } else {
         return (
-            <>
+            <div className="formWrapper">
             <form onSubmit={handleLogin}>
-                <label>Username:
+                <label>Username:&nbsp;
                 <input type="text" name="username" value={username} onChange={e => setUsername(e.target.value)}/>
                 </label>
-                <label>Password:
+                <label>&nbsp;Password:&nbsp;
                 <input type="text" name="password" value={password} onChange={e => setPassword(e.target.value)}/>
                 </label>
-                <button type="submit">Sign In</button>
+                <button className="button signupButton" type="submit">Sign In</button>
             </form>
             {error && <div>Username or password not found</div>}
-            </>
+            </div>
         );
     } 
 }
