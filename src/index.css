@@ -1,13 +1,182 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Lobster&family=Raleway:wght@400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+    background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+h1 {
+    font-family: 'Raleway', sans-serif;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    background-color:rgba(255,255,255, 0.7);
+    padding: 15px 25px;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav ul li {
+    margin-right: 20px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+nav ul li:last-of-type {
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #c02878;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+}
+
+.nav ul li:not(:nth-last-child(-n+2)):hover {
+    border-bottom: 2px solid #c02878;
+    cursor: pointer;
+}
+
+span {
+    font-weight: bold;
+}
+
+.avatar {
+    border-radius: 50%;
+}
+
+.nav ul button {
+    margin-right: 0;
+}
+
+.logo {
+    font-family: 'Lobster', cursive;
+    font-size: 36px;
+}
+
+.button {
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: none;
+    background-color:#c02878;
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+}
+
+button:hover {
+    color:#c02878;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 30px;
+    padding: 30px;
+}
+
+.tile {
+    background-color: rgba(250, 250, 250, 0.35);
+    border-radius: 20px;
+    padding: 20px;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    min-width: 250px;
+}
+
+.tileButton {
+    margin-top: 10px;
+}
+
+.dashboardContainer {
+    display: flex;
+    justify-content: space-around;
+    padding: 30px;
+}
+
+.dashboardCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboardCard h1 {
+    margin-bottom: 20px;
+}
+
+.formWrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.datePicker {
+    margin: 47px 0;
+}
+
+select {
+    border-radius: 20px;
+    padding: 10px 20px;
+    border: none;
+}
+
+.formWrapper h1 {
+    margin-bottom: 30px;
+}
+
+.formWrapper h3 {
+    margin-bottom: 10px;
+}
+
+.formWrapper a:hover {
+    color: #fff;
+}
+
+.loginPrompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.signupPrompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 0;
+}
+
+.signupButton {
+    margin-left: 10px;
+}
+
+.addButton {
+    margin-bottom: 23.5px;
 }
