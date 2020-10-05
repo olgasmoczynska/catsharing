@@ -1,15 +1,17 @@
 import React from 'react';
 const faker = require('faker');
 
-function Tile(props) {
+function Tile({name, pet, dateFrom, dateTo}) {
+
   return (
       <div>
         <div>
-            <img alt="human-avatar" src={faker.image.avatar()} />
-            <div>{props.name}</div>
+            <img className="avatar" alt="human-avatar" src={faker.image.avatar()} />
+            <div><h2>{name}</h2></div>
         </div>
-        <div>Requested petsitting for a {props.pet}</div>
-        <div>From {props.dateFrom} to {props.dateTo}</div>
+        <div>Requested petsitting for a <span>{pet}</span></div>
+        <div>from <span>{dateFrom}</span></div>
+        <div>to <span>{dateTo}</span></div>
       </div>
   );
 }
