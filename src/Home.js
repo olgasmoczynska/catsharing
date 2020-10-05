@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Tile from "./Tile";
 import Nav from "./Nav";
 import {  Redirect } from 'react-router-dom';
-const userId = localStorage.getItem('id');
+import { getUsers } from './service';
 const API = 'http://localhost:3000/users';
 
 function Home() {
@@ -33,7 +33,7 @@ function Home() {
   }, []);
 
   const handleClick = (el) => {
-    
+    const userId = localStorage.getItem('id');
     fetch(`${API}/${userId}`, {
       method: "PATCH",
       body: JSON.stringify({
@@ -66,14 +66,14 @@ function Home() {
     return (
       <>
       <Nav onLogout={onLogout} />
-      <div>
-      {tiles.map((el) => <><Tile key={el.id}
+      <div className="grid">
+      {tiles.map((el) => el.requests && el.requests.length > 0 && <div className="tile"><Tile key={el.id}
                                 name={el.username}
                                 pet={el.requests[0]}
-                                dateFrom={el.requests[1].replace('T',' ').substring(0, 19)}
-                                dateTo={el.requests[2].replace('T',' ').substring(0, 19)}
+                                dateFrom={el.requests[1].replace('T',' ').substring(0, 10)}
+                                dateTo={el.requests[2].replace('T',' ').substring(0, 10)}
                                 />
-                                <button onClick={() => handleClick(el)}>Accept</button></>
+                                <button className="button tileButton" onClick={() => handleClick(el)}>Accept</button></div>
                                 )}
       </div>
       </>
