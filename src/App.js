@@ -1,26 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import {  HashRouter,  Route,  Switch } from 'react-router-dom';
+import Welcome from './Welcome';
+import Signup from './Signup';
+import Login from './Login';
+import Home from './Home';
+import Dashboard from './Dashboard';
+import AddRequest from './AddRequest';
 
 function App() {
+  const [user, setUser] = useState(null);
+  const [requests, setRequests] = useState([]);
+
+  const addRequest = (el) => {
+    setRequests([...requests, el]);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <HashRouter>             
+      <Switch>               
+      <Route exact path='/'><Welcome /></Route>
+      <Route exact path='/login'><Login /></Route>
+      <Route exact path='/signup'><Signup /></Route>
+      <Route exact path='/home'><Home /></Route>
+      <Route exact path='/dashboard'> <Dashboard /></Route>
+      <Route exact path='/addrequest'><AddRequest onAddRequest={addRequest} /></Route>
+      </Switch>           
+    </HashRouter>
+  )
+  
+  // if (user) {
+  //   return (
+  //     <>
+  //     <Nav loggedUser={user} />
+  //     <Dashboard />
+  //     </>
+  //   )
+  // } else {
+  //   return (
+  //     <Welcome />
+  //   );
+  // }
 }
 
 export default App;
