@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {  Link } from 'react-router-dom';
 import DatePicker from 'react-date-picker';
-const userId = localStorage.getItem('id');
-const API = `http://localhost:3000/users/${userId}`;
+const getUserId = () => localStorage.getItem('id');
+const API = 'http://localhost:3000';
 
 function AddRequest({onAddRequest}) {
     const [dateFrom, setDateFrom] = useState(new Date());
@@ -14,7 +14,7 @@ function AddRequest({onAddRequest}) {
     const handleSubmit = (event) => {
         event.preventDefault();
         if (validation()) {
-            fetch(API, {
+            fetch(`${API}/users/${getUserId()}`, {
                 method: "PATCH",
                 body: JSON.stringify({
                   requests: [pet, dateFrom, dateTo]
@@ -54,29 +54,29 @@ function AddRequest({onAddRequest}) {
     }
 
     return (
-        <>
+        <div className="formWrapper">
         {error &&
           <div>{error}</div>
         }
-        <form onSubmit={handleSubmit}>
+        <form className="form" onSubmit={handleSubmit}>
             <select value={pet} onChange={e => setPet(e.target.value)}>
-                <option value="" disabled="disabled">Select</option>
+                <option value="" disabled="disabled">Select pet</option>
                 <option value="cat">Cat</option>
                 <option value="dog">Dog</option>
             </select>
-            <div>
-            From:
+            <div className="datePicker">
+            From:&nbsp;
             <DatePicker onChange={setDateFrom} required value={dateFrom} />
-            To:
+            &nbsp;To:&nbsp;
             <DatePicker onChange={setDateTo} required value={dateTo} />
             </div>
-            <button type="submit">Add</button>
+            <button className="button addButton" type="submit">Add request</button>
         </form>
+        <Link to='/dashboard'>Back to dashboard</Link>
         {requested && <>
         <div>Request successfuly submitted!</div>
-        <Link to='/home'>Dashboard</Link>
         </>}
-        </>
+        </div>
     )
 }
 
