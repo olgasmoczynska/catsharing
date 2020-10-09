@@ -1,0 +1,91 @@
+{
+  "users": [
+    {
+      "username": "Admin",
+      "password": "$2a$10$Hg7msJoACXHEowDBQ9h4KOK9FlxWvgtF6vE77.3qmLKxVsfL6oBdu",
+      "requests": [
+        "cat",
+        "2020-10-31T23:00:00.000Z",
+        "2020-11-01T23:00:00.000Z"
+      ],
+      "accepted": [
+        "Jane",
+        "cat",
+        "2020-12-31T23:00:00.000Z",
+        "2021-01-03T23:00:00.000Z"
+      ],
+      "id": 1
+    },
+    {
+      "username": "John",
+      "password": "$2a$10$pOJpiSSjV5sXkkZ1Q2MBkOeVAtquBfV8VFHtSG2Eu1nMQJKIyFQWC",
+      "requests": [
+        "dog",
+        "2020-12-24T23:00:00.000Z",
+        "2020-12-27T23:00:00.000Z"
+      ],
+      "accepted": [],
+      "id": 2
+    },
+    {
+      "username": "Jane",
+      "password": "$2a$10$OfE2t9SqJbyvxk3N/aL3LuRbAg4SxBoky1kxIdFao9mA3fx4nAOMG",
+      "requests": [
+        "cat",
+        "2020-12-31T23:00:00.000Z",
+        "2021-01-03T23:00:00.000Z"
+      ],
+      "accepted": [
+        "Admin",
+        "cat",
+        "2020-10-31T23:00:00.000Z",
+        "2020-11-01T23:00:00.000Z"
+      ],
+      "id": 3
+    },
+    {
+      "username": "Mark",
+      "password": "$2a$10$eTy8IYZR98uYGR.0kJ/.juT59iLTe7JLx/B4NM7T0TX4ma0gIN.tm",
+      "requests": [
+        "cat",
+        "2021-02-14T23:00:00.000Z",
+        "2021-02-14T23:00:00.000Z"
+      ],
+      "accepted": [
+        "Russel",
+        "dog",
+        "2021-05-01T22:00:00.000Z",
+        "2021-05-03T22:00:00.000Z"
+      ],
+      "id": 4
+    },
+    {
+      "username": "Emily",
+      "password": "$2a$10$zdFVKWOwIHBhw6bgvD0lzeGNNZo0EXFpFDnFgXC9qauM6raEW3K8e",
+      "requests": [],
+      "accepted": [
+        "John",
+        "dog",
+        "2020-12-24T23:00:00.000Z",
+        "2020-12-27T23:00:00.000Z"
+      ],
+      "id": 5
+    },
+    {
+      "username": "Russel",
+      "password": "$2a$10$I1gMgpMUIE1yqiJWqoQ/ZOUmn34Gl1atk7SwPlZH3JvxZ4f3t.htC",
+      "requests": [
+        "dog",
+        "2021-05-01T22:00:00.000Z",
+        "2021-05-03T22:00:00.000Z"
+      ],
+      "accepted": [
+        "Mark",
+        "cat",
+        "2021-02-14T23:00:00.000Z",
+        "2021-02-14T23:00:00.000Z"
+      ],
+      "id": 6
+    }
+  ]
+}

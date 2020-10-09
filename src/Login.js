@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {  Redirect } from 'react-router-dom';
 const API = 'http://localhost:3000/users';
+const bcrypt = require("bcryptjs");
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -33,7 +34,7 @@ function Login() {
             console.log(users);
             const user = users.find(userItem => username === userItem.username);
             if (user) {
-                if (user.password === password) {
+                if (bcrypt.compareSync(password, user.password) === true) {
                     localStorage.setItem('username', username);
                     localStorage.setItem('id', user.id);
                     setIsLogged(true);

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {  Link } from 'react-router-dom';
 const API = 'http://localhost:3000/users';
+const bcrypt = require("bcryptjs");
 
 function Signup({onAddUser}) {
     const [username, setUsername] = useState('');
@@ -10,32 +11,34 @@ function Signup({onAddUser}) {
     const handleSignup = e => {
         e.preventDefault();
 
-        fetch(API, {
-          method: "POST",
-          body: JSON.stringify({
-            username,
-            password,
-            requests: [],
-            accepted: []
-          }),
-          headers: {
-            "Content-Type": "application/json"
-          }
-        })
-          .then(response => {
-            if (response.ok === false) {
-              throw new Error("Błąd sieci!");
-            } else {
-              return response.json();
+        bcrypt.hash(password, 10, (err, hash) => {
+          fetch(API, {
+            method: "POST",
+            body: JSON.stringify({
+              username,
+              password: hash,
+              requests: [],
+              accepted: []
+            }),
+            headers: {
+              "Content-Type": "application/json"
             }
           })
-          .then(data => {
-            if (typeof onAddUser === "function") {
-              onAddUser(data);
-            };
-            setRegistered(true);
-          })
-          .catch(err => console.log(err));
+            .then(response => {
+              if (response.ok === false) {
+                throw new Error("Błąd sieci!");
+              } else {
+                return response.json();
+              }
+            })
+            .then(data => {
+              if (typeof onAddUser === "function") {
+                onAddUser(data);
+              };
+              setRegistered(true);
+            })
+            .catch(err => console.log(err));
+        })
       };
 
       if (registered) {
